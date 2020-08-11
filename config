@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Config
+
+clusters:
+- cluster:
+    server: https://192.168.99.100:8443
+    certificate-authority: /kube_cert/ca.crt
+  name: newcluster
+
+
+contexts:
+- context:
+    cluster: newcluster
+    user: manish
+
+users:
+- name: manish
+  user:
+    client-key: /kube_cert/client.key
+    client-certificate: /kube_cert/client.crt
+
